@@ -1,0 +1,9 @@
+wss:
+    build: .
+    command: npm start
+    volumes:
+        - server.js:/src/server.js
+        - handlers/:/src/handlers
+        - socket/:/src/socket
+    ports:
+        - "3030:3030"
