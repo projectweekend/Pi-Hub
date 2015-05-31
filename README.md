@@ -1,2 +1,1 @@
-# Pi-Hub
-A simple socket.io server for receiving data from my Raspberry Pis
+## Run with with [Docker](https://docs.docker.com/) [Compose](https://docs.docker.com/compose/)
