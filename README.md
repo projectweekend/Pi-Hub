@@ -6,13 +6,13 @@ This project organizes a small [socket.io](http://socket.io/) server. There is n
 
 Handlers organize the code that will run when data is received from a device. They are stored in [/handlers/index.js](./handlers/index.js). When the server starts it will read all of the handlers defined in this file and configure **socket.io** namespaces and connection stuff.
 
-An example handler is included in the project. To create one you make a new instance of `Handler`, give it a name, and make sure it gets exported. The name `test` in this snippet is used to define a namespace. This handler will be available for connection at `http://your_hostname_or_ip/test`.
+An example handler is included in the project. To create one you make a new instance of `Handler`, give it a name, and make sure it gets exported. The name `test` in this snippet is used to define a namespace. This handler will be available for connection at `http://your_hostname_or_ip/test`. I usually make one handler for each device I want to have connected.
 
 ```javascript
 exports.test = new Handler( "test" );
 ```
 
-With a handler instance you can add tasks to it. A task associates a text label with some function to execute. In the snippet below, when a connected socket emits data using the `whatever` label, the provided function that will run on the server. The function takes a single input parameter that will be populated with the data received from the device.
+With a handler instance you can start adding tasks to it. A task associates a text label with some function to execute. In the snippet below, when a connected socket emits data using the `whatever` label, the provided function that will run on the server. The function takes a single input parameter that will be populated with the data received from the device. Add tasks for all the different things your device will be sending.
 
 ```javascript
 exports.test.addTask( "whatever", function ( m ) {
